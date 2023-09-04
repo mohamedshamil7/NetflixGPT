@@ -1,3 +1,8 @@
+#  NetflixGpt
+- create react app (with typescript )
+- configured tailwind
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
