@@ -1,6 +1,16 @@
 #  NetflixGpt
 - create react app (with typescript )
 - configured tailwind
+- Header
+- routing of App
+- Login Form / signuUp (toggle)
+- Form Validation
+- useRef Hook
+- firebase
+- Created signup user account
+- Impliment sign in api
+- created Redux store
+- Updated User Profile
 
 
 # Getting Started with Create React App
