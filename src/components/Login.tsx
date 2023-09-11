@@ -3,7 +3,6 @@ import { authbgURL } from '../utils/constants'
 import { checkValideData } from '../utils/validation'
 import { SignIn, SignUp, updateprofile } from '../utils/hooks/authHooks'
 import { authdata } from '../utils/types'
-import { useNavigate } from 'react-router-dom'
 import Header from './Header'
 import { auth } from '../utils/firebase/frebaseCongif'
 import { useDispatch } from 'react-redux'
@@ -11,7 +10,6 @@ import { addUser } from '../store/slice/userSlice'
 
 const Login = () => {
     const dispatch = useDispatch()
-    const navigate = useNavigate()
     const [isSignInForm,setIsSignInForm] = useState(true)
     const [errorMessage,setErrorMessage]= useState<null | string >(null)
      const email = useRef<HTMLInputElement>(null!)
@@ -34,18 +32,15 @@ const Login = () => {
     const initiateAuth =async (data: authdata)=>{
         if(isSignInForm){
             const response = await SignIn(data)
-            console.log(response)
             if('errorCode' in response){
                 setErrorMessage(response?.errorCode +response?.errorMessage)
                 return
             }
             console.log("signed in user")
 
-            navigate("/browse")
 
         }else{
             const response =await  SignUp(data)
-            console.log(response)
             if('errorCode' in response){
                 setErrorMessage(response?.errorCode +response?.errorMessage)
                 return
@@ -54,7 +49,6 @@ const Login = () => {
             await updateprofile(response.user,data.fullName)
             updateStore()
 
-            navigate("/browse")
 
         }
         
