@@ -23,7 +23,7 @@ const Header = () => {
   }
 
   useEffect(()=>{
-    onAuthStateChanged(auth, (user) => {
+   const unsubscribe =  onAuthStateChanged(auth, (user) => {
       if (user) {
         //user SignIn/SingUp
         const {uid,email,displayName} = user;
@@ -36,6 +36,8 @@ const Header = () => {
 
       }
     });
+    // unsubscribe is called when component unmounts
+    return ()=> unsubscribe()
   },[])
 
   return (
