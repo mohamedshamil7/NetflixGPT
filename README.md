@@ -19,6 +19,11 @@
 - browse page updated
 - new main container created
 - youtube vedio embeded
+- Secondary Cards added
+- More data fetched from tmdb
+- hooks created
+- secondary cards created 
+- desgin adjusted
 
 
 # Getting Started with Create React App

@@ -15,6 +15,14 @@ export const API_OPTIONS = {
 
 export const now_playing_movies = 'https://api.themoviedb.org/3/movie/now_playing?page=1'
 
+export const popular_movies = 'https://api.themoviedb.org/3/movie/popular'
+
+export const top_rated_movies ='https://api.themoviedb.org/3/movie/top_rated'
+
+export const upcoming_movies = 'https://api.themoviedb.org/3/movie/upcoming'
+
 export const  get_movie_vedios = 'https://api.themoviedb.org/3/movie/'
 
 export const youtube_vedio_embeded = "https://www.youtube.com/embed/"
+
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500"

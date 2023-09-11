@@ -11,8 +11,7 @@ const MainContainer = () => {
             <h1>Waiting.. no movies now</h1>
         )
     }
-    const mainMovie = movies[0]
-    console.log(mainMovie)
+    const mainMovie = movies[2]
    const  {original_title,overview,id} = mainMovie
   return (
     <div>

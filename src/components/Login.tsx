@@ -32,7 +32,6 @@ const Login = () => {
     const initiateAuth =async (data: authdata)=>{
         if(isSignInForm){
             const response = await SignIn(data)
-            console.log(response)
             if('errorCode' in response){
                 setErrorMessage(response?.errorCode +response?.errorMessage)
                 return
@@ -42,7 +41,6 @@ const Login = () => {
 
         }else{
             const response =await  SignUp(data)
-            console.log(response)
             if('errorCode' in response){
                 setErrorMessage(response?.errorCode +response?.errorMessage)
                 return
