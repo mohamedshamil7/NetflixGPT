@@ -15,4 +15,6 @@ export const API_OPTIONS = {
 
 export const now_playing_movies = 'https://api.themoviedb.org/3/movie/now_playing?page=1'
 
-export const  get_movie_vedios = 'https://api.themoviedb.org/3/movie/615656/videos?language=en-US'
+export const  get_movie_vedios = 'https://api.themoviedb.org/3/movie/'
+
+export const youtube_vedio_embeded = "https://www.youtube.com/embed/"

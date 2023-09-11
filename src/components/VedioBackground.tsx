@@ -2,24 +2,26 @@ import React from 'react'
 import useGetMovieVedios from '../utils/hooks/useGetMovieVedios'
 import { useSelector } from 'react-redux'
 import { RootState } from '../store/appStore'
+import { youtube_vedio_embeded } from '../utils/constants'
 
 const VedioBackground = ({movieId}:{movieId:string}) => {
     const trailerVedio  = useSelector((store:RootState)=> store.movies?.trailerVedio)
-    useGetMovieVedios()
-
+    useGetMovieVedios(movieId)
     if(!trailerVedio){
         return (
             <h2>fetvching ...</h2>
         )
     }
+
+
   return (
     <div>
-      <iframe
+    {"key" in trailerVedio && (<iframe
       className='w-screen aspect-video'
-        src="https://www.youtube.com/embed/InGnxypZY7s?si=InGnxypZY7s?&autoplay=1&mute=1"
+        src={youtube_vedio_embeded+trailerVedio?.key+"?&autoplay=1&mute=1"}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      ></iframe>
+      ></iframe>)}
     </div>
   );
 }
