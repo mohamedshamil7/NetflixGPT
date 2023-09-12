@@ -8,15 +8,15 @@ const gptQuery =
 " Act as a Movie Recomentation System and suggest some movies for the query :" +
 searchText+
 ". only give me 10 Movies comma seperated like the example result given ahead . Exmaple result : Movie1 ,Movie2 ,Movie3 ,Movie4 ,Movie5 ,Movie6 ,Movie7 ,Movie8 ,Movie9 ,Movie10 ,";
-  // const gptResults = await openai.chat.completions.create({
-  //           messages:[{role: "user", content:gptQuery}],
-  //           model:"gpt-3.5-turbo"
-  //       })
+  const gptResults = await openai.chat.completions.create({
+            messages:[{role: "user", content:gptQuery}],
+            model:"gpt-3.5-turbo"
+        })
         // console.log(gptResults.choices[0]?.message?.content)
 
-        const gptResults = "Kunjikoonan, Meesa Madhavan, Chanthupottu, Kunjikoonan, Tenkasi Pattanam, Pandipada, CID Moosa, Kalyanaraman, Pappy Appacha, Mayamohini."
-        // const gptMovies = gptResults.choices[0]?.message?.content?.split(",")
-        const gptMovies = gptResults.split(",")
+        // const gptResults = "Kunjikoonan, Meesa Madhavan, Chanthupottu, Kunjikoonan, Tenkasi Pattanam, Pandipada, CID Moosa, Kalyanaraman, Pappy Appacha, Mayamohini."
+        const gptMovies = gptResults.choices[0]?.message?.content?.split(",")
+        // const gptMovies = gptResults.split(",")
     return gptMovies
 }
 
