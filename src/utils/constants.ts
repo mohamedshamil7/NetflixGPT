@@ -22,13 +22,17 @@ export const API_OPTIONS : api= {
         }
 }
 
-export const now_playing_movies = 'https://api.themoviedb.org/3/movie/now_playing?page=1'
+export const genere={
+now_playing_movies : 'https://api.themoviedb.org/3/movie/now_playing',
+popular_movies : 'https://api.themoviedb.org/3/movie/popular',
+ top_rated_movies :'https://api.themoviedb.org/3/movie/top_rated',
+ upcoming_movies : 'https://api.themoviedb.org/3/movie/upcoming',
 
-export const popular_movies = 'https://api.themoviedb.org/3/movie/popular'
+}
 
-export const top_rated_movies ='https://api.themoviedb.org/3/movie/top_rated'
 
-export const upcoming_movies = 'https://api.themoviedb.org/3/movie/upcoming'
+
+
 
 export const  get_movie_vedios = 'https://api.themoviedb.org/3/movie/'
 

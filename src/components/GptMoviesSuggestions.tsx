@@ -13,6 +13,7 @@ const GptMoviesSuggestions = () => {
           key={movieName}
           title={movieName}
           movies={movieResults[index]}
+          showMore={false}
         />
       ))}
     </div>
