@@ -8,11 +8,16 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { useDispatch } from 'react-redux'
 import { auth } from '../utils/firebase/frebaseCongif'
 import { addUser, removeUser } from '../store/slice/userSlice'
+import { toggleGptSearchView } from '../store/slice/gptSlice'
+import { togeleShowMoreMovies } from '../store/slice/moviesSlice'
 
 const Header = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const user = useSelector((store:RootState)=>store.user)
+  const showGptSearch = useSelector((store:RootState)=> store.gpt.showGptSearch)
+  const showMoreGenere = useSelector((store:RootState)=> store.movies.showMoreMovies)
+  
   const handleClick = ()=>{
     const response = signout()
     if("errorMessage"in response){
@@ -21,6 +26,13 @@ const Header = () => {
     }
 
   }
+  const handleGptSearchClick = ()=>{
+    dispatch(toggleGptSearchView())
+  }
+  const handleShowMoreMoviesclick = ()=>{
+    dispatch(togeleShowMoreMovies())
+  }
+
 
   useEffect(()=>{
    const unsubscribe =  onAuthStateChanged(auth, (user) => {
@@ -42,11 +54,13 @@ const Header = () => {
 
   return (
     <div 
-    className='absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between' >
+    className='absolute w-screen  px-8 py-2 bg-gradient-to-b from-black  z-10 flex flex-col md:flex-row justify-between' >
         <img 
-        className='w-44' src={NetflixLogoURL} alt="logo" />
-       {user && (<div className='flex'>
-          <button onClick={handleClick} className='cursor:pointer font-bold text-2xl text-white'>Sign Out</button>
+        className='w-44 mx-auto md:mx-0' src={NetflixLogoURL} alt="logo" />
+       {user && (<div className='flex justify-between'>
+        {showMoreGenere&& ( <button onClick={handleShowMoreMoviesclick} className='py-2 px-2 my-2 mx-4 bg-red-500 text-white  rounded-lg'>Home</button>)}
+        <button onClick={handleGptSearchClick} className='py-2 px-2 my-2 mx-4 bg-white rounded-lg'>{showGptSearch? "Home ":"GPT Search"}</button>
+          <button onClick={handleClick} className='cursor:pointer  text-xl text-white'>Sign Out</button>
         </div>)}
     </div>
   )

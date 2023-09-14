@@ -24,6 +24,11 @@
 - hooks created
 - secondary cards created 
 - desgin adjusted
+- gpt Search Feature
+- fetch movies according to the output from gpt using tmdb api
+- store it in redux store
+- update ui according to data
+- env file created
 
 
 # Getting Started with Create React App
